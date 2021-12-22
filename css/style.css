@@ -23,7 +23,7 @@ body main {
 
 .container {
     width: 80%;
-    margin-bottom: 50px;
+    margin: 50px 10px;
 }
 
 .alertMessage {

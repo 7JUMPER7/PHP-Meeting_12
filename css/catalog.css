@@ -1,0 +1,44 @@
+.filters {
+	background-color: white;
+	box-shadow: 7px 7px 15px 0 rgba(0, 0, 0, .3);
+	border-radius: 10px;
+	padding: 10px;
+	color: black;
+}
+
+.cards {
+	margin-top: 30px;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+}
+.cards .card {
+	background-color: white;
+	box-shadow: 7px 7px 15px -5px rgba(0, 0, 0, .2);
+	border-radius: 10px;
+	padding: 10px;
+	color: black;
+	transition: .3s;
+	width: 300px;
+	overflow: hidden;
+	margin: 10px;
+	display: flex;
+	flex-direction: column;
+}
+.cards .card:hover {
+	box-shadow: 7px 7px 15px 0 rgba(0, 0, 0, .3);
+}
+.cards .card img {
+	width: 100%;
+}
+.cards .card .body {
+	padding: 10px;
+	flex: 1 1 auto;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+.cards .card .body .price {
+	color: #fe5f55;
+	text-align: right;
+}
