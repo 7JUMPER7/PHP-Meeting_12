@@ -1,9 +1,30 @@
+.shopContainer {
+	display: grid;
+	grid-template-columns: 250px 1fr;
+}
+
 .filters {
 	background-color: white;
-	box-shadow: 7px 7px 15px 0 rgba(0, 0, 0, .3);
+	width: calc(100% - 40px);
+	height: 300px;
+	box-shadow: 7px 7px 15px 0 rgba(0, 0, 0, .2);
 	border-radius: 10px;
-	padding: 10px;
 	color: black;
+	position: sticky;
+	top: 70px;
+	margin-top: 50px;
+	padding: 20px;
+}
+.filters p {
+	color: #145a8c;
+	text-align: center;
+	margin-bottom: 10px;
+	font-weight: 400;
+}
+.filters label {
+	font-size: 17px;
+	padding: 5px;
+	color: #145a8c;
 }
 
 .cards {
@@ -15,13 +36,13 @@
 .cards .card {
 	background-color: white;
 	box-shadow: 7px 7px 15px -5px rgba(0, 0, 0, .2);
-	border-radius: 10px;
+	border-radius: 15px;
 	padding: 10px;
 	color: black;
 	transition: .3s;
 	width: 300px;
 	overflow: hidden;
-	margin: 10px;
+	margin: 20px;
 	display: flex;
 	flex-direction: column;
 }
@@ -32,7 +53,7 @@
 	width: 100%;
 }
 .cards .card .body {
-	padding: 10px;
+	padding: 15px;
 	flex: 1 1 auto;
 	display: flex;
 	flex-direction: column;
@@ -41,4 +62,5 @@
 .cards .card .body .price {
 	color: #fe5f55;
 	text-align: right;
+	margin-top: 10px;
 }

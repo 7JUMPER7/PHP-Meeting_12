@@ -13,7 +13,7 @@
 
 <header id="header">
 	<?php
-		echo "<a href='".site_url('/home')."' class='logo'>Arsenii Shop</a>";
+		echo "<a href='".site_url('/shop')."' class='logo'>Arsenii Shop</a>";
 		echo "<div class='login'>";
 		if(isset($_SESSION['customer'])) {
 			echo "<a href='".site_url('/auth')."'><h3>".$_SESSION['customer']->getLogin()."</h3></a>";

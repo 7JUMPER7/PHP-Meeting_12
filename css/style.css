@@ -22,7 +22,7 @@ body main {
 }
 
 .container {
-    width: 80%;
+    width: 90%;
     margin: 50px 10px;
 }
 
@@ -59,4 +59,40 @@ body main {
     width: 32px;
     height: 32px;
     color: black;
+}
+
+
+
+select {
+	border: none;
+	border-radius: 7px;
+	padding: 5px 10px;
+	box-shadow: 4px 4px 10px 0 rgba(0, 0, 0, .1);
+	outline: none;
+	width: 100%;
+	border: 3px solid transparent;
+	transition: .3s;
+}
+select:focus {
+	border: 3px solid #145a8c;
+}
+
+input {
+	border: none;
+	border-radius: 7px;
+	padding: 5px 10px;
+	box-shadow: 4px 4px 10px 0 rgba(0, 0, 0, .1);
+	outline: none;
+	width: 100%;
+	border: 3px solid transparent;
+	transition: .3s;
+}
+input[type='submit'] {
+	background-color: #145a8c;
+	color: white;
+	margin-top: 30px;
+}
+input[type='submit']:hover {
+	filter: brightness(1.3);
+	cursor: pointer;
 }

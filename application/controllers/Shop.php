@@ -5,11 +5,23 @@
 		function __construct() {
 			parent::__construct();
 			$this->load->model('good_model');
+			$this->load->model('category_model');
 		}
 
 		public function index() {
-			// $this->load->view('./shop/shopIndex');
-			$data['goods'] = $this->good_model->getGoods();
+			$data['categories'] = $this->category_model->getCategories();
+			$filterBtn = $this->input->post('filterBtn');
+			$categoryId = $this->input->post('categoryId');
+			if(isset($filterBtn) && isset($categoryId)) {
+				if($categoryId != 0) {
+					$data['goods'] = $this->good_model->getGoodsByCategoryId($categoryId);
+					$data['selectedCategoryId'] = $categoryId;
+				} else {
+					$data['goods'] = $this->good_model->getGoods();
+				}
+			} else {
+				$data['goods'] = $this->good_model->getGoods();
+			}
 			$this->load->template('./shop/shopIndex', $data);
 		}
 	}

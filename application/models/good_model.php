@@ -7,12 +7,17 @@
 
 		public function getGoods() {
 			$goods = $this->db->get('Goods');
-			return $goods->result_array();
+			return $goods->result();
 		}
 
 		public function getGoodById($id) {
-			$good = $this->db->get_where('goods'. array('id' => $id), 1);
-			return $good->result_array();
+			$good = $this->db->get_where('Goods', array('id' => $id), 1);
+			return $good->result();
+		}
+
+		public function getGoodsByCategoryId($categoryId) {
+			$goods = $this->db->get_where('Goods', array('CategoryId' => $categoryId));
+			return $goods->result();
 		}
 	}
 ?>

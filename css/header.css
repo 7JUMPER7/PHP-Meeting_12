@@ -5,7 +5,7 @@ header {
     padding: 20px;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
     position: sticky;
     top: 0;
     transition: .5s;
@@ -29,7 +29,7 @@ header.transparent a {
     color: #1e2e35;
 }
 header a:hover {
-    color: #f0a80d;
+    color: #fe5f55;
 }
 
 header .login {
