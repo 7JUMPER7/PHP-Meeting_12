@@ -8,6 +8,7 @@
 	<link href="<?php echo base_url(); ?>css/style.css" rel="stylesheet">
 	<link href="<?php echo base_url(); ?>css/header.css" rel="stylesheet">
 	<link href="<?php echo base_url(); ?>css/catalog.css" rel="stylesheet">
+	<link href="<?php echo base_url(); ?>css/goodPage.css" rel="stylesheet">
 </head>
 <body>
 

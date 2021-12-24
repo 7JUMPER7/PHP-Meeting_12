@@ -6,6 +6,7 @@
 			parent::__construct();
 			$this->load->model('good_model');
 			$this->load->model('category_model');
+			$this->load->model('image_model');
 		}
 
 		public function index() {
@@ -22,7 +23,19 @@
 			} else {
 				$data['goods'] = $this->good_model->getGoods();
 			}
-			$this->load->template('./shop/shopIndex', $data);
+			$this->load->template('./shop/index', $data);
+		}
+
+		public function good() {
+			$goodId = $this->input->get('id');
+			$goods = $this->good_model->getGoodById($goodId);
+			if(!$goods) {
+				$this->load->template('./errors/error404.php');
+				return;
+			}
+			$data['good'] = $goods[0];
+			$data['images'] = $this->image_model->getImagesByGoodId($data['good']->Id);
+			$this->load->template('./shop/good', $data);
 		}
 	}
 ?>

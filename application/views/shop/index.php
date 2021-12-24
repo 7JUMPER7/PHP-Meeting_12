@@ -22,7 +22,7 @@
 		<div class="cards">
 			<?php
 				foreach($goods as $good) {
-					echo "<div class='card'>";
+					echo "<a href='".site_url('/shop/good?id=').$good->Id."'><div class='card'>";
 					if(!$good->PreviewImage) {
 						?>
 							<div class="undefinedImage"><svg width="16" height="16" fill="currentColor" class="bi bi-question-lg" viewBox="0 0 16 16">
