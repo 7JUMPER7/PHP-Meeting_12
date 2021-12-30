@@ -1,0 +1,42 @@
+.authForm {
+	font-family: 'Exo 2', sans-serif;
+	width: 70%;
+	max-width: 400px;
+	display: flex;
+	flex-direction: column;
+	margin: 10px auto;
+	/* background-color: white; */
+	border-radius: 10px;
+	/* box-shadow: 7px 7px 15px 0 rgba(0, 0, 0, .2); */
+	padding: 20px;
+}
+.authForm label {
+	color: #145a8c;
+	font-weight: 400;
+	text-align: center;
+	margin-bottom: 10px;
+}
+.authForm input {
+	font-family: 'Exo 2', sans-serif;
+	font-size: 20px;
+	margin-top: 10px;
+	font-weight: lighter;
+}
+.authForm input[type='submit'] {
+	margin-top: 20px;
+	font-weight: 400;
+}
+
+.authForm .messages {
+	padding: 20px;
+	font-size: 17px;
+	text-shadow: 1px 1px 10px rgba(0, 0, 0, .2);
+}
+.authForm .goodMessage {
+	color: #52e74d;
+	text-align: center;
+}
+.authForm .errors li {
+	color: #fe5f55;
+	box-sizing: border-box;
+}

@@ -9,6 +9,7 @@
 	<link href="<?php echo base_url(); ?>css/header.css" rel="stylesheet">
 	<link href="<?php echo base_url(); ?>css/catalog.css" rel="stylesheet">
 	<link href="<?php echo base_url(); ?>css/goodPage.css" rel="stylesheet">
+	<link href="<?php echo base_url(); ?>css/auth.css" rel="stylesheet">
 </head>
 <body>
 
@@ -17,7 +18,7 @@
 		echo "<a href='".site_url('/shop')."' class='logo'>Arsenii Shop</a>";
 		echo "<div class='login'>";
 		if(isset($_SESSION['customer'])) {
-			echo "<a href='".site_url('/auth')."'><h3>".$_SESSION['customer']->getLogin()."</h3></a>";
+			echo "<a href='".site_url('/auth')."'><h3>".$_SESSION['customer']['Name']."</h3></a>";
 		} else {
 			echo "<a href='".site_url('/auth/register')."'>Register</a>";
 			echo "<a href='".site_url('/auth/login')."'>Login</a>";

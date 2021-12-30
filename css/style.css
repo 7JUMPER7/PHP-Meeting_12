@@ -13,6 +13,7 @@ body {
     font-weight: lighter;
     background-color: whitesmoke;
     color: #2B2B2B;
+	min-width: 365px;
 }
 
 body main {
@@ -76,8 +77,12 @@ select {
 select:focus {
 	border: 3px solid #145a8c;
 }
+input:focus {
+	border: 3px solid #145a8c;
+}
 
 input {
+	box-sizing: border-box;
 	border: none;
 	border-radius: 7px;
 	padding: 5px 10px;

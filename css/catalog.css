@@ -6,7 +6,7 @@
 .filters {
 	background-color: white;
 	width: calc(100% - 40px);
-	height: 300px;
+	height: 250px;
 	box-shadow: 7px 7px 15px 0 rgba(0, 0, 0, .2);
 	border-radius: 10px;
 	color: black;
@@ -52,6 +52,7 @@
 }
 .cards .card:hover {
 	box-shadow: 7px 7px 15px 0 rgba(0, 0, 0, .3);
+	transform: scale(1.05);
 }
 .cards .card img {
 	width: 100%;
@@ -67,4 +68,17 @@
 	color: #fe5f55;
 	text-align: right;
 	margin-top: 10px;
+}
+
+@media screen and (max-width: 700px) {
+	.shopContainer {
+		grid-template-columns: none;
+		display: flex;
+		flex-direction: column;
+		gap: 20px;
+	}
+	.filters {
+		position:static;
+		margin-top: 0;
+	}
 }
