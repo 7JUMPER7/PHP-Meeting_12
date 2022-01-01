@@ -9,7 +9,24 @@
 		}
 
 		public function index() {
-			$this->load->template('./auth/userPage');
+			$logOutBtn = $this->input->post('logOutBtn');
+			if(isset($logOutBtn)) {
+				$this->session->sess_destroy();
+				redirect('/shop');
+			}
+
+			$sessCustomer = $this->session->userdata('customer');
+			$data = array('isAuth' => false);
+
+			if(isset($sessCustomer)) {
+				$data['isAuth'] = true;
+				$customer = $this->customer_model->getCustomerById($sessCustomer['Id']);
+				if($customer) {
+					$data['customer'] = $customer[0];
+				}
+			}
+
+			$this->load->template('./auth/userPage', $data);
 		}
 		public function register() {
 			$sBtn = $this->input->post('sBtn');

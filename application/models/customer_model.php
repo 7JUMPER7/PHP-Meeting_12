@@ -11,7 +11,11 @@
 		}
 
 		public function getCustomerById($id) {
-			$customer = $this->db->get_where('Customers', array('Id' => $id), 1);
+			$this->db->select('*');
+			$this->db->from('Customers');
+			$this->db->join('Roles', 'Roles.Id = Customers.RoleId');
+			$this->db->where('Customers.Id', $id);
+			$customer = $this->db->get();
 			return $customer->result();
 		}
 
