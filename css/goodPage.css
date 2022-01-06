@@ -1,13 +1,58 @@
+.goodWrap {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: flex-start;
+}
+
+.goodInfo {
+	background-color: white;
+	/* box-shadow: 7px 7px 20px 0 rgba(0, 0, 0, .2); */
+	box-shadow: 0 0 30px #fff, 5px 5px 30px rgb(190 198 200 / 70%);
+  border-radius: 10px;
+	margin: 20px;
+	width: 90%;
+	padding: 20px;
+	display: flex;
+	flex-direction: column;
+}
+.goodInfo .description {
+	margin-top: 30px;
+	font-size: 18px;
+}
+.goodInfo .priceWrap {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-top: 30px;
+}
+.goodInfo .priceWrap .price {
+	color: #fe5f55;
+}
+
 .carousel {
   position: relative;
-  /* width: 300px; */
-  height: 400px;
+	width: 100% !important;
+  min-width: 300px;
+	height: 500px;
   width: 90%;
   overflow: hidden;
-  box-shadow: 7px 7px 20px 0 rgba(0, 0, 0, .2);
+  /* box-shadow: 7px 7px 20px 0 rgba(0, 0, 0, .2); */
   border-radius: 10px;
   text-align: center;
+	background-color: white;
+	margin: 20px;
 }
+
+@media screen and (max-width: 750px) {
+	.goodWrap {
+		flex-direction: column;
+		justify-content: flex-start;
+		align-items: center;
+	}
+}
+
+
 
 .carousel.pointer-event {
   touch-action: pan-y;

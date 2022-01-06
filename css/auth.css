@@ -40,3 +40,29 @@
 	color: #fe5f55;
 	box-sizing: border-box;
 }
+
+.userWrap {
+	margin: 30px auto;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	width: 400px;
+}
+.userWrap form {
+	width: 100%;
+	margin: 5px;
+}
+.userWrap form input {
+	font-size: 18px;
+	font-family: 'Exo 2', sans-serif;
+	margin-bottom: 10px;
+}
+.userWrap form input[type='submit'] {
+	margin: 0;
+	font-size: 20px;
+	box-shadow: none;
+}
+.userWrap form label {
+	margin-top: 20px;
+}

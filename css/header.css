@@ -55,3 +55,8 @@ header.transparent .login {
 header.transparent .login a::after {
     color: #1e2e35;
 }
+
+header .userHeaderWrap {
+	display: flex;
+	justify-content: space-evenly;
+}

@@ -11,10 +11,10 @@
 		}
 
 		public function getCustomerById($id) {
-			$this->db->select('*');
-			$this->db->from('Customers');
-			$this->db->join('Roles', 'Roles.Id = Customers.RoleId');
-			$this->db->where('Customers.Id', $id);
+			$this->db->select('c.Id, c.Name, c.Email, c.Password, c.Discount, c.Avatar, c.RoleId, r.Role');
+			$this->db->from('Customers as c');
+			$this->db->join('Roles as r', 'r.Id = c.RoleId');
+			$this->db->where('c.Id', $id);
 			$customer = $this->db->get();
 			return $customer->result();
 		}
@@ -32,6 +32,17 @@
 			$this->db->insert('Customers', $customer);
 			$id = $this->db->insert_id();
 			return $id;
+		}
+
+		public function updateInfo($id, $name, $email, $avatarData) {
+			$data = array(
+				'Name' => $name,
+				'Email' => $email,
+				'Avatar' => $avatarData
+			);
+
+			$this->db->where('Id', $id);
+			$this->db->update('Customers', $data);
 		}
 	}
 ?>

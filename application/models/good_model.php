@@ -11,7 +11,11 @@
 		}
 
 		public function getGoodById($id) {
-			$good = $this->db->get_where('Goods', array('id' => $id), 1);
+			$this->db->select('g.Id, g.Good, g.Price, g.Stars, g.Description, g.PreviewImage, c.Category');
+			$this->db->from('Goods as g');
+			$this->db->join('Categories as c', 'g.CategoryId = c.Id');
+			$this->db->where('g.Id', $id);
+			$good = $this->db->get();
 			return $good->result();
 		}
 

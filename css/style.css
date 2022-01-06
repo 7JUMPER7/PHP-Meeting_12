@@ -11,7 +11,8 @@ body {
     font-family: 'Exo 2', sans-serif;
     font-size: 30px;
     font-weight: lighter;
-    background-color: whitesmoke;
+    /* background-color: whitesmoke; */
+    background-color: white;
     color: #2B2B2B;
 	min-width: 365px;
 }
@@ -25,6 +26,7 @@ body main {
 .container {
     width: 90%;
     margin: 50px 10px;
+	max-width: 1300px;
 }
 
 .alertMessage {
@@ -33,17 +35,18 @@ body main {
 
 .glowBtn {
     color: white;
-    background-color: #D12A38;
-    box-shadow: 0 0 20px 0 #D12A38;
+    background-color: #fe5f55 !important;
+    /* box-shadow: 0 0 20px 0 #D12A38; */
     border-radius: 10px;
     text-decoration: none;
     font-weight: bold;
-    padding: 10px 15px;
+    padding: 10px 30px;
     transition: .2s;
+	margin: 0 !important;
 }
 .glowBtn:hover {
     background-color: #e92a3a;
-    box-shadow: 0 0 30px 0 #e92a3a;
+    box-shadow: 0 0 20px -5px #e92a3a;
     color: white;
 }
 
@@ -68,7 +71,7 @@ select {
 	border: none;
 	border-radius: 7px;
 	padding: 5px 10px;
-	box-shadow: 4px 4px 10px 0 rgba(0, 0, 0, .1);
+	box-shadow: 0 0 30px #fff, 5px 5px 30px rgb(190 198 200 / 70%);
 	outline: none;
 	width: 100%;
 	border: 3px solid transparent;
@@ -86,7 +89,7 @@ input {
 	border: none;
 	border-radius: 7px;
 	padding: 5px 10px;
-	box-shadow: 4px 4px 10px 0 rgba(0, 0, 0, .1);
+	box-shadow: 0 0 30px #fff, 5px 5px 30px rgb(190 198 200 / 70%);
 	outline: none;
 	width: 100%;
 	border: 3px solid transparent;

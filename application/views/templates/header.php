@@ -18,7 +18,12 @@
 		echo "<a href='".site_url('/shop')."' class='logo'>Arsenii Shop</a>";
 		echo "<div class='login'>";
 		if(isset($_SESSION['customer'])) {
+			echo "<div class='userHeaderWrap'>";
 			echo "<a href='".site_url('/auth')."'><h3>".$_SESSION['customer']['Name']."</h3></a>";
+			if($_SESSION['customer']['Avatar']) {
+
+			}
+			echo "</div>";
 		} else {
 			echo "<a href='".site_url('/auth/register')."'>Register</a>";
 			echo "<a href='".site_url('/auth/login')."'>Login</a>";
