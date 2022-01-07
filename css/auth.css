@@ -47,11 +47,13 @@
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
-	width: 400px;
+	max-width: 400px;
+	width: 100%;
 }
 .userWrap form {
 	width: 100%;
 	margin: 5px;
+	min-width: 200px;
 }
 .userWrap form input {
 	font-size: 18px;
@@ -62,7 +64,13 @@
 	margin: 0;
 	font-size: 20px;
 	box-shadow: none;
+	width: 100%;
 }
 .userWrap form label {
 	margin-top: 20px;
+}
+
+.userWrap form img {
+	width: 100px;
+	border-radius: 50%;
 }

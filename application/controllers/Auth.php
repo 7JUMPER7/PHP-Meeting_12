@@ -23,7 +23,6 @@
 				$customer = $this->customer_model->getCustomerById($sessCustomer['Id']);
 				if($customer) {
 					$data['customer'] = $customer[0];
-					var_dump($data['customer']);
 				}
 			}
 
@@ -95,22 +94,26 @@
 			if(!isset($sessCustomer)) {
 				redirect('/shop');
 			} else {
-				$sessCustomer['Name'] = $_POST['name'];
-				$sessCustomer['Email'] = $_POST['email'];
-				$imageData = file_get_contents($this->upload->data());
-				$sessCustomer['Avatar'] = $imageData;
-
-				$config['upload_path'] = base_url().'/assets/avatars/';
-				$config['allowed_types'] = 'gif|jpg|png';
-				$config['max_size']  = '100';
+				$config['upload_path'] = './assets/avatars';
+				$config['allowed_types'] = 'gif|jpg|png|jpeg';
+				$config['max_size']  = '1000';
 				$config['max_width'] = '1024';
 				$config['max_height'] = '1024';
-
+				
 				$this->load->library('upload', $config);
-				$this->upload->do_upload();
+				$this->upload->do_upload('avatar');
+				
+				$sessCustomer['Name'] = $_POST['name'];
+				$sessCustomer['Email'] = $_POST['email'];
+				$buf = $this->upload->data();
+				var_dump($this->upload->display_errors());
+				$imageData = file_get_contents($buf['full_path']);
+				$sessCustomer['Avatar'] = $imageData;
+				$this->session->set_userdata('customer', $sessCustomer);
+				
 				$this->customer_model->updateInfo($sessCustomer['Id'], $_POST['name'], $_POST['email'], $imageData);
 
-				// redirect('/shop');
+				redirect('/auth');
 			}
 		}
 	}
