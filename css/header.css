@@ -63,9 +63,10 @@ header .userHeaderWrap {
 	gap: 10px;
 }
 header .userHeaderWrap img {
-	/* width: 16px; */
+	width: 32px;
 	height: 32px;
 	border-radius: 50%;
+	object-fit: cover;
 }
 
 @media screen and (max-width: 750px) {

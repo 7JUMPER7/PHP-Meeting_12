@@ -2,13 +2,10 @@
 	<div class="userWrap">
 		<?php
 			if($isAuth) {
-				// echo "<div>".base64_encode($customer->Avatar)."</div>";
-				// var_dump($_SESSION['customer']['Avatar']);
-
 				echo form_open('/auth/update', array('method' => 'POST', 'enctype' => 'multipart/form-data'));
-				// echo "<img src='data:image/jpeg;base64,".base64_encode($customer->Avatar)."' alt='avatar'>";
-				// header("Content-type: image/jpg"); 
-				echo '<img src="data:image/jpeg;base64,'.base64_encode($customer->Avatar).'"/>';
+				if($customer->Avatar) {
+					echo '<div class="imageWrap"><img src="data:image/jpeg;base64,'.base64_encode($customer->Avatar).'"/></div>';
+				}
 				echo form_upload(array('name' => 'avatar'));
 
 				echo form_label('Name:');
@@ -28,6 +25,17 @@
 
 				echo form_open('/auth');
 				echo form_submit(array('name' => 'logOutBtn'), 'Log out');
+
+				if(isset($errors)) {
+					echo "<div class='messages'>";
+					echo "<ul class='errors'>";
+					foreach($errors as $error) {
+						echo "<li class='badMessage'>".$error."</li>";
+					}
+					echo "</ul>";
+					echo "</div>";
+				}
+				
 				echo form_close();
 			} else {
 				echo "<div>Log in first</div>";

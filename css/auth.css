@@ -27,16 +27,16 @@
 	font-weight: 400;
 }
 
-.authForm .messages {
+.messages {
 	padding: 20px;
 	font-size: 17px;
 	text-shadow: 1px 1px 10px rgba(0, 0, 0, .2);
 }
-.authForm .goodMessage {
+.goodMessage {
 	color: #52e74d;
 	text-align: center;
 }
-.authForm .errors li {
+.errors li {
 	color: #fe5f55;
 	box-sizing: border-box;
 }
@@ -70,7 +70,16 @@
 	margin-top: 20px;
 }
 
-.userWrap form img {
+.userWrap form .imageWrap {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	margin-bottom: 10px;
+}
+.userWrap form .imageWrap img {
 	width: 100px;
+	height: 100px;
 	border-radius: 50%;
+	object-fit: cover;
 }

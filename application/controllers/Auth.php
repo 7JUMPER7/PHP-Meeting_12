@@ -9,14 +9,16 @@
 		}
 
 		public function index() {
+			$errors = $this->session->flashdata('errors');
+			unset($_SESSION['errors']);
 			$logOutBtn = $this->input->post('logOutBtn');
 			if(isset($logOutBtn)) {
 				$this->session->sess_destroy();
 				redirect('/shop');
 			}
-
+			
 			$sessCustomer = $this->session->userdata('customer');
-			$data = array('isAuth' => false);
+			$data = array('isAuth' => false, 'errors' => $errors);
 			
 			if(isset($sessCustomer)) {
 				$data['isAuth'] = true;
@@ -94,25 +96,47 @@
 			if(!isset($sessCustomer)) {
 				redirect('/shop');
 			} else {
+				$sessCustomer['Name'] = $_POST['name'];
+				$sessCustomer['Email'] = $_POST['email'];
+				$errors = array();
+				
+
 				$config['upload_path'] = './assets/avatars';
 				$config['allowed_types'] = 'gif|jpg|png|jpeg';
-				$config['max_size']  = '1000';
+				$config['max_size']  = '1024';
 				$config['max_width'] = '1024';
 				$config['max_height'] = '1024';
 				
 				$this->load->library('upload', $config);
-				$this->upload->do_upload('avatar');
-				
-				$sessCustomer['Name'] = $_POST['name'];
-				$sessCustomer['Email'] = $_POST['email'];
-				$buf = $this->upload->data();
-				var_dump($this->upload->display_errors());
-				$imageData = file_get_contents($buf['full_path']);
-				$sessCustomer['Avatar'] = $imageData;
-				$this->session->set_userdata('customer', $sessCustomer);
-				
-				$this->customer_model->updateInfo($sessCustomer['Id'], $_POST['name'], $_POST['email'], $imageData);
+				$imageData = null;
+				if(!$this->upload->do_upload('avatar')) {
+					$error = $this->upload->display_errors('', '');
+					if($error == 'The file you are attempting to upload is larger than the permitted size.') {
+						$errors[] = 'Изображение должно быть меньше 1 МБ';
+						// $this->session->set_flashdata('errors[]', '[Изображение должно быть меньше 1 МБ]');
+					} else if($error == 'The image you are attempting to upload doesn\'t fit into the allowed dimensions.') {
+						$errors[] = 'Изображение не должно превышать 1024 писелей по высоте/ширине';
 
+						// $this->session->set_flashdata('errors[]', '[Изображение не должно превышать 1024 писелей по высоте/ширине]');
+					}
+					// redirect('/auth');
+				} else {
+					$buf = $this->upload->data();
+					$imageData = file_get_contents($buf['full_path']);
+					$sessCustomer['Avatar'] = $imageData;
+					
+					$this->load->helper("file");
+					unlink($buf['full_path']); // Удаление буферного файла
+				}
+				
+				$this->session->set_userdata('customer', $sessCustomer); // Обновление пользователя в сессии
+				$res = $this->customer_model->updateInfo($sessCustomer['Id'], $_POST['name'], $_POST['email'], $imageData); // Обновление информации в БД
+				if(!$res['status']) {
+					$errors[] = $res['error'];
+					// $this->session->set_flashdata('errors[]', $res['error']);
+				}
+				$this->session->set_flashdata('errors', $errors);
+				var_dump($errors);
 				redirect('/auth');
 			}
 		}

@@ -35,14 +35,29 @@
 		}
 
 		public function updateInfo($id, $name, $email, $avatarData) {
+			$db_debug = $this->db->db_debug; //save setting
+			$this->db->db_debug = FALSE; //disable debugging for queries
+
 			$data = array(
 				'Name' => $name,
-				'Email' => $email,
-				'Avatar' => $avatarData
+				'Email' => $email
 			);
-
+			
+			if($avatarData != null) {
+				$data += ['Avatar' => $avatarData];
+			}
+			
 			$this->db->where('Id', $id);
 			$this->db->update('Customers', $data);
+			$this->db->db_debug = $db_debug; //restore setting
+
+			if(!$this->db->error()['code']) {
+				return ['status' => true];
+			} else if($this->db->error()['code'] == 1062) {
+				return ['status' => false, 'error' => 'Электронная почта уже существует'];
+			} else {
+				return ['status' => false, 'error' => 'Непредвиденная ошибка'];
+			}
 		}
 	}
 ?>
