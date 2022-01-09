@@ -1,0 +1,74 @@
+.adminForm {
+	display: flex;
+	flex-direction: column;
+	box-shadow: 0 0 30px #fff, 5px 5px 30px rgb(190 198 200 / 70%);
+	border-radius: 10px;
+	overflow: hidden;
+	margin-top: 50px;
+}
+
+.adminForm form {
+	font-size: max(20px, 75%);
+	border-radius: 10px;
+	text-align: center;
+}
+
+.adminForm form input {
+	font-family: 'Exo 2', sans-serif;
+}
+
+.adminForm form table {
+	width: 100%;
+	border-collapse: collapse;
+	border-radius: 10px;
+	overflow: scroll;
+	max-height: 50px;
+}
+.adminForm form table th {
+	background-color: #3a86bd63;
+}
+.adminForm form table tr {
+	height: 30px;
+	transition: .2s;
+}
+.adminForm form table tr:nth-child(even) {
+	background-color: rgb(245, 245, 245);
+}
+.adminForm form table tr:hover {
+	background-color: rgb(235, 235, 235);
+}
+.adminForm form table td {
+	text-align: center;
+	margin: 0 10px;
+}
+.adminForm form table .delCheckbox {
+	width: 58px;
+	height: 16px;
+	margin: 15px;
+}
+.adminForm form table .delCheckbox input[type='checkbox'] {
+	background-color: transparent;
+	box-shadow: none;
+}
+
+.adminForm form input[type='submit'] {
+	background-color: #3a86bd63;
+	color: black;
+	width: 200px;
+	margin-top: 20px;
+	margin-bottom: 20px;
+	font-size: 16px;
+}
+
+.adminAddForm {
+	margin: 50px 0 30px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+.adminAddForm input {
+	margin-top: 10px;
+	width: 50%;
+	min-width: 200px;
+	font-size: 18px;
+}

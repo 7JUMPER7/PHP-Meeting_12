@@ -10,6 +10,7 @@
 	<link href="<?php echo base_url(); ?>css/catalog.css" rel="stylesheet">
 	<link href="<?php echo base_url(); ?>css/goodPage.css" rel="stylesheet">
 	<link href="<?php echo base_url(); ?>css/auth.css" rel="stylesheet">
+	<link href="<?php echo base_url(); ?>css/admin.css" rel="stylesheet">
 </head>
 <body>
 
