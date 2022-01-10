@@ -20,8 +20,14 @@
 		}
 
 		public function getCustomerByEmail($email) {
-			$res = $this->db->get_where('Customers', array('Email' => $email), 1);
+			$this->db->select('c.Id, c.Name, c.Email, c.Password, c.Discount, c.Avatar, c.RoleId, r.Role');
+			$this->db->from('Customers as c');
+			$this->db->join('Roles as r', 'r.Id = c.RoleId');
+			$this->db->where('c.Email', $email);
+			$res = $this->db->get();
 			$customers = $res->result_array();
+			// $res = $this->db->get_where('Customers', array('Email' => $email), 1);
+			// $customers = $res->result_array();
 			if(count($customers) == 0) {
 				return null;
 			}

@@ -29,6 +29,7 @@
 }
 .adminForm form table tr {
 	height: 30px;
+	max-height: 100px;
 	transition: .2s;
 }
 .adminForm form table tr:nth-child(even) {
@@ -40,6 +41,12 @@
 .adminForm form table td {
 	text-align: center;
 	margin: 0 10px;
+}
+.adminForm form table img {
+	height: 100px;
+}
+.adminForm form table .undefinedImage {
+	height: 100px;
 }
 .adminForm form table .delCheckbox {
 	width: 58px;
@@ -71,4 +78,19 @@
 	width: 50%;
 	min-width: 200px;
 	font-size: 18px;
+}
+.adminAddForm select {
+	font-family: 'Exo 2', sans-serif;
+	margin-top: 10px;
+	width: 50%;
+	min-width: 200px;
+	font-size: 18px;
+}
+.adminAddForm textarea {
+	font-family: 'Exo 2', sans-serif;
+	margin-top: 10px;
+	width: 50%;
+	min-width: 200px;
+	font-size: 18px;
+	/* border: none; */
 }

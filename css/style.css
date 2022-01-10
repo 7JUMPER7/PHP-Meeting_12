@@ -67,24 +67,11 @@ body main {
 
 
 
-select {
-	border: none;
-	border-radius: 7px;
-	padding: 5px 10px;
-	box-shadow: 0 0 30px #fff, 5px 5px 30px rgb(190 198 200 / 70%);
-	outline: none;
-	width: 100%;
-	border: 3px solid transparent;
-	transition: .3s;
-}
-select:focus {
-	border: 3px solid #145a8c;
-}
-input:focus {
+input:focus, select:focus, textarea:focus {
 	border: 3px solid #145a8c;
 }
 
-input {
+input, select, textarea {
 	box-sizing: border-box;
 	border: none;
 	border-radius: 7px;
